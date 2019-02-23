@@ -35,7 +35,7 @@ import javax.swing.JComboBox;
 public class UI {
 
 	private JFrame frame;
-	
+	private GameModel gm=new GameModel();
 	public JFrame getFrame() {
 		
 		return frame;
@@ -61,6 +61,7 @@ public class UI {
 	 * Create the application.
 	 */
 	public UI() {
+		
 		initialize();
 	}
 
@@ -68,7 +69,7 @@ public class UI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		GameModel gm=new GameModel();
+		
 		BoardSetup bs=new BoardSetup();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1132, 745);
@@ -148,7 +149,7 @@ public class UI {
 			
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 17));
-		btnNewButton.setBounds(23, 88, 95, 39);
+		btnNewButton.setBounds(22, 88, 126, 39);
 		panel.add(btnNewButton);
 		
 		JButton btnNewGameFile = new JButton("New");
@@ -170,7 +171,7 @@ public class UI {
 			}
 		});
 		btnNewGameFile.setFont(new Font("Tahoma", Font.BOLD, 17));
-		btnNewGameFile.setBounds(23, 158, 95, 39);
+		btnNewGameFile.setBounds(22, 155, 126, 39);
 		panel.add(btnNewGameFile);		
 		
 		JComboBox comboBoxAdjacent = new JComboBox();
@@ -210,7 +211,7 @@ public class UI {
 
 		
 		
-		JButton btnStartGame = new JButton("Start Game");
+		JButton btnStartGame = new JButton("Save Map");
 		btnStartGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -252,7 +253,25 @@ public class UI {
 		btnStartGame.setBounds(888, 599, 178, 39);
 		panel.add(btnStartGame);
 		
-				
+		JLabel lblNewLabel = new JLabel("Continents");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel.setBounds(202, 74, 103, 16);
+		panel.add(lblNewLabel);
+		
+		JLabel lblMemberCountries = new JLabel("Member Countries");
+		lblMemberCountries.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblMemberCountries.setBounds(463, 74, 141, 16);
+		panel.add(lblMemberCountries);
+		
+		JLabel lblAdjacentCountries = new JLabel("Adjacent Countries");
+		lblAdjacentCountries.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblAdjacentCountries.setBounds(735, 75, 141, 16);
+		panel.add(lblAdjacentCountries);
+		}
+		
+		public GameModel getGameModel() {
+			return gm;
+		}
 		
 		
 		
@@ -264,4 +283,4 @@ public class UI {
 		
 		
 	}
-}
+
