@@ -9,6 +9,7 @@ public class Reinforcement {
 
 	private HashMap<String, ArrayList<Countries>> playerCountries;
 	private ArrayList<Countries> countriList;
+	private int i;
 	
 	Reinforcement(ArrayList<Countries> countriList){
 		this.countriList = countriList;
