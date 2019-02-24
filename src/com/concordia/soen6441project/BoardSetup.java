@@ -196,5 +196,8 @@ public class BoardSetup {
 			return adjacentName;
 		 
 	 }
+	 public ArrayList<Countries> getCountries(){
+		 return countriesList;
+	 }
 
 }
