@@ -197,7 +197,7 @@ public class BoardSetup {
 		 
 	 }
 	 public ArrayList<Countries> getCountries(){
-		 //int i;
+		 //int j;
 		 return countriesList;
 	 }
 
