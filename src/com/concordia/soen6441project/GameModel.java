@@ -90,4 +90,23 @@ public ArrayList<String> getadjacent(String countryName){
 		return board.getadjacent(countryName);
 	 
 }
+public ArrayList<String> readDirectory() {
+	String path="C:\\Map";
+	ArrayList<String> files=new ArrayList<String>();
+	File folder=new File(path);
+	File[] listOfFiles=folder.listFiles();
+	for (File file : listOfFiles) {
+		if(file.getName().endsWith(".txt")||file.getName().endsWith(".TXT")) {
+			files.add(file.getName());
+		}
+	}
+	return files;
+}
+//public BoardSetup getBoard() {
+//	return board;
+//}
+public void fortification() {
+	
+}
+
 }
