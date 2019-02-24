@@ -102,4 +102,11 @@ public ArrayList<String> readDirectory() {
 	}
 	return files;
 }
+//public BoardSetup getBoard() {
+//	return board;
+//}
+public void fortification() {
+	
+}
+
 }
