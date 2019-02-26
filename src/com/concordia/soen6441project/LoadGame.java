@@ -32,6 +32,7 @@ public class LoadGame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private static GameModel gm=new GameModel();
 	
 	public JFrame getFrame() {
 		
@@ -213,7 +214,7 @@ public class LoadGame {
 							stringBuilder.append("\n");
 					}
 					input = stringBuilder.toString();
-					GameModel gm=new GameModel();
+					//GameModel gm=new GameModel();
 					flag= gm.initializeGame(input);
 					if(flag==true) {
 						String xy=comboBox.getSelectedItem().toString();
@@ -223,6 +224,8 @@ public class LoadGame {
 							System.out.println(string);
 						}
 						gm.createPlayers(players);
+						PlayScreen ps=new PlayScreen();
+						ps.getFrame().setVisible(true);
 						
 					}
 					
@@ -370,5 +373,8 @@ public class LoadGame {
 			}
 		}
 		return playerName;
+	}
+	public static GameModel getGameModel() {
+		return gm;
 	}
 }

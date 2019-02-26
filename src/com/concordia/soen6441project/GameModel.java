@@ -111,5 +111,18 @@ public ArrayList<String> readDirectory() {
 public void createPlayers(ArrayList<String> players){
 	System.out.println("IngameModel:createPlayers");
 	 game.createPlayers(players);
+	 ArrayList<Players> pl=game.getPlayers();
+	 pl.get(0).setCountriesHeld(board.getCountriesHashmap());
+	 pl.get(1).setCountriesHeld(board.getCountriesHashmap());
+}
+
+public ArrayList<Countries> getHeldCountries(int turnCount){
+	
+	return game.getHeldCountries(turnCount,game.getPlayers());
+}
+
+public ArrayList<Players> getPlayers(){
+	
+	return game.getPlayers();
 }
 }

@@ -24,7 +24,7 @@ public class Players {
 		//hand = new Hand();
 		
 		//turnInCount = 0;
-		System.out.println("Players Created:"+this.name);
+		System.out.println("Players Created:"+this.name+" "+this.turnInCount);
     }
     
     public String getName() {

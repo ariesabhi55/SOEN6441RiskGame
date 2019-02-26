@@ -1,6 +1,9 @@
 package com.concordia.soen6441project;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import sun.net.www.protocol.http.HttpURLConnection.TunnelState;
 
 public class GamePlay {
 	
@@ -31,6 +34,23 @@ public class GamePlay {
 	public ArrayList<Players> getPlayers(){
 		
 		return playersobjlist;
+	}
+	
+	public ArrayList<Countries> getHeldCountries(int turnCount,ArrayList<Players> play){
+		System.out.println(turnCount);
+		ArrayList<Countries> countryHeld=new ArrayList<Countries>();
+		System.out.println(play.size());
+		for (Players players : play) {
+			System.out.println(players.getTurnInCount());
+			if(players.getTurnInCount()==turnCount) {
+				System.out.println(players.getName());
+				for (String countries : players.getCountriesHeld().keySet()) {
+					countryHeld.add(players.getCountriesHeld().get(countries));
+				}
+				//countryHeld.add();
+			}
+		}
+		return countryHeld;
 	}
 
 }

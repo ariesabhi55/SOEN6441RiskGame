@@ -196,5 +196,9 @@ public class BoardSetup {
 			return adjacentName;
 		 
 	 }
+	 
+	 public HashMap<String,Countries>  getCountriesHashmap(){
+		 return countriesMap;
+	 }
 
 }
