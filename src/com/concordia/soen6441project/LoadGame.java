@@ -7,7 +7,11 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.SwingConstants;
@@ -28,6 +32,11 @@ public class LoadGame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	
+	public JFrame getFrame() {
+		
+		return frame;
+	}
 
 	/**
 	 * Launch the application.
@@ -60,6 +69,7 @@ public class LoadGame {
 		frame.setBounds(100, 100, 874, 629);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
@@ -189,6 +199,39 @@ public class LoadGame {
 		
 		btnLoadGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String fileName="C:\\Map\\"+comboBox_1.getSelectedItem().toString();
+				//File selectedFile= new File(fileName);
+				try {
+					BufferedReader reader= new BufferedReader(new FileReader(fileName));
+					StringBuilder stringBuilder = new StringBuilder();
+					String line;
+					String input;
+					boolean flag;
+					while((line = reader.readLine()) != null) {
+						stringBuilder.append(line);
+						if(line!=null)
+							stringBuilder.append("\n");
+					}
+					input = stringBuilder.toString();
+					GameModel gm=new GameModel();
+					flag= gm.initializeGame(input);
+					if(flag==true) {
+						String xy=comboBox.getSelectedItem().toString();
+						System.out.println(xy);
+						ArrayList<String> players=getData(xy);
+						for (String string : players) {
+							System.out.println(string);
+						}
+						gm.createPlayers(players);
+						//System.out.println(gm.createPlayers(players).get(0).getName());//printing first player name
+					}
+					
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
 				
 			}
 		});
@@ -272,5 +315,60 @@ public class LoadGame {
 			textField_4.setVisible(true);
 			textField_5.setVisible(true);
 		}
+	}
+	public ArrayList<String> getData(String xy) {
+		ArrayList<String> playerName=new ArrayList<String>();
+		if(xy.equals("Two")) {
+			if(textField.getText().trim().equals("")||textField_1.getText().trim().equals(""))
+				System.out.println("Please Enter Names for all players");
+			else {
+			playerName.add(textField.getText());
+			playerName.add(textField_1.getText());
+			}
+			
+		}
+		else if(xy.equals("Three")){
+			if(textField.getText().trim().equals("")||textField_1.getText().trim().equals("")||textField_2.getText().trim().equals(""))
+				System.out.println("Please Enter Names for all players");
+			else {
+			playerName.add(textField.getText());
+			playerName.add(textField_1.getText());
+			playerName.add(textField_2.getText());
+			}
+		}
+		else if(xy.equals("Four")){
+			if(textField.getText().trim().equals("")||textField_1.getText().trim().equals("")||textField_2.getText().trim().equals("")||textField_3.getText().trim().equals(""))
+				System.out.println("Please Enter Names for all players");
+			else {
+			playerName.add(textField.getText());
+			playerName.add(textField_1.getText());
+			playerName.add(textField_2.getText());
+			playerName.add(textField_3.getText());
+			}
+		}
+		else if(xy.equals("Five")){
+			if(textField.getText().trim().equals("")||textField_1.getText().trim().equals("")||textField_2.getText().trim().equals("")||textField_3.getText().trim().equals("")||textField_4.getText().trim().equals(""))
+				System.out.println("Please Enter Names for all players");
+			else {
+			playerName.add(textField.getText());
+			playerName.add(textField_1.getText());
+			playerName.add(textField_2.getText());
+			playerName.add(textField_3.getText());
+			playerName.add(textField_4.getText());
+			}
+		}
+		else if(xy.equals("Six")){
+			if(textField.getText().trim().equals("")||textField_1.getText().trim().equals("")||textField_2.getText().trim().equals("")||textField_3.getText().trim().equals("")||textField_4.getText().trim().equals("")||textField_5.getText().trim().equals(""))
+				System.out.println("Please Enter Names for all players");
+			else {
+			playerName.add(textField.getText());
+			playerName.add(textField_1.getText());
+			playerName.add(textField_2.getText());
+			playerName.add(textField_3.getText());
+			playerName.add(textField_4.getText());
+			playerName.add(textField_5.getText());
+			}
+		}
+		return playerName;
 	}
 }

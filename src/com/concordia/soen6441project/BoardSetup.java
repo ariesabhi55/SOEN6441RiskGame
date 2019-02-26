@@ -1,4 +1,4 @@
-package com.concordia.soen6441project;
+ package com.concordia.soen6441project;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -195,10 +195,6 @@ public class BoardSetup {
 		}
 			return adjacentName;
 		 
-	 }
-	 public ArrayList<Countries> getCountries(){
-		 //int j;
-		 return countriesList;
 	 }
 
 }

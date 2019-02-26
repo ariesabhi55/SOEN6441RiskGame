@@ -12,10 +12,12 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class HomePage extends UI {
+public class HomePage {
 
 	private JFrame Hframe;
 	UI ui=new UI();
+	
+	LoadGame lg=new LoadGame();
 
 	/**
 	 * Launch the application.
@@ -71,6 +73,13 @@ public class HomePage extends UI {
 		panel.add(btnNewButton);
 		
 		JButton btnLoadGame = new JButton("Load Game");
+		btnLoadGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				lg.getFrame().setVisible(true);;
+				
+			}
+		});
 		btnLoadGame.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnLoadGame.setBounds(166, 183, 319, 49);
 		panel.add(btnLoadGame);

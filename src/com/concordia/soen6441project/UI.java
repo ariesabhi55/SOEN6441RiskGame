@@ -75,6 +75,7 @@ public class UI {
 		frame.setBounds(100, 100, 1132, 745);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setTitle("RISK GAME");
 		
 		Date date=new Date();
 		long time=date.getTime();
@@ -156,7 +157,7 @@ public class UI {
 		btnNewGameFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-				FileReader reader=new FileReader("C:\\Users\\Abhishek Rajput\\eclipse-workspace\\countries.txt");
+				FileReader reader=new FileReader("C:\\Users\\Abhishek Rajput\\eclipse-workspace\\NewGameFile.txt");
             	BufferedReader br=new BufferedReader(reader);
             	textArea.read(br,null);
             	br.close();
@@ -211,7 +212,7 @@ public class UI {
 
 		
 		
-		JButton btnStartGame = new JButton("Save Map");
+		JButton btnStartGame = new JButton("Validate & Save");
 		btnStartGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -267,20 +268,26 @@ public class UI {
 		lblAdjacentCountries.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblAdjacentCountries.setBounds(735, 75, 141, 16);
 		panel.add(lblAdjacentCountries);
+		
+		JButton btnValidate = new JButton("Validate");
+		btnValidate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				String gameData=textArea.getText();
+				Boolean x=gm.initializeGame(gameData);
+				if(!x) {
+					JOptionPane.showMessageDialog(btnStartGame,"Error with Connected Graph","Error",JOptionPane.ERROR_MESSAGE);
+				}
+				
+			}
+		});
+		btnValidate.setFont(new Font("Tahoma", Font.BOLD, 17));
+		btnValidate.setBounds(888, 527, 178, 39);
+		panel.add(btnValidate);
 		}
 		
 		public GameModel getGameModel() {
 			return gm;
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 

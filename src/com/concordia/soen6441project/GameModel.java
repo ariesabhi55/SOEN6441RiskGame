@@ -7,6 +7,7 @@ public class GameModel {
 	
 	private boolean isLoaded;
 	private BoardSetup board = new BoardSetup();
+	private GamePlay game=new GamePlay();
 	private StringBuilder stringBuilder;
 	private String line;
 	private BufferedReader reader;
@@ -102,11 +103,13 @@ public ArrayList<String> readDirectory() {
 	}
 	return files;
 }
-//public BoardSetup getBoard() {
-//	return board;
-//}
-public void fortification() {
-	
-}
 
+//public void createPlayers(ArrayList<String> players) {
+	
+//}
+
+public ArrayList<Players> createPlayers(ArrayList<String> players){
+	System.out.println("IngameModel:createPlayers");
+	return game.createPlayers(players);
+}
 }
