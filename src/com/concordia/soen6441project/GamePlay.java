@@ -8,16 +8,28 @@ public class GamePlay {
 	
 	ArrayList<Players> playersobjlist=new ArrayList<Players>();
 	
-	public ArrayList<Players> createPlayers(ArrayList<String> players){
-		System.out.println(players.size());
+	public void createPlayers(ArrayList<String> players){
 		int i=1;
+		int army;
+		if(players.size()==2 || players.size()==3)
+			army=35;
+		else if(players.size()==4)
+			army=30;
+		else if(players.size()==5)
+			army=25;
+		else
+			army=20;
 		for (String player : players) {
-			System.out.println("in createPlayers"+player);
-			objplayer=new Players(player,30,i);
+			objplayer=new Players(player,army,i);
 			playersobjlist.add(objplayer);
 			i++;
 			
 		}
+		
+	}
+	
+	public ArrayList<Players> getPlayers(){
+		
 		return playersobjlist;
 	}
 

@@ -108,8 +108,8 @@ public ArrayList<String> readDirectory() {
 	
 //}
 
-public ArrayList<Players> createPlayers(ArrayList<String> players){
+public void createPlayers(ArrayList<String> players){
 	System.out.println("IngameModel:createPlayers");
-	return game.createPlayers(players);
+	 game.createPlayers(players);
 }
 }

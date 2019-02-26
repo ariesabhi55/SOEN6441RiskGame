@@ -223,7 +223,7 @@ public class LoadGame {
 							System.out.println(string);
 						}
 						gm.createPlayers(players);
-						//System.out.println(gm.createPlayers(players).get(0).getName());//printing first player name
+						
 					}
 					
 				} catch (IOException e1) {
